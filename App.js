@@ -1,20 +1,42 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text } from 'react-native';
+import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import Home from './screens/Home';
+import Register from './screens/Registration';
+import Dashboard from './screens/Dashboard';
+import Studyspace from './screens/Studyspace';
+import StudyspaceTwo from './screens/StudyspaceTwo';
+import ExamModule from './screens/ExamModule';
+import AnswerSheet from './screens/AnswerSheet';
 
+
+
+//
+
+const Stack = createStackNavigator();
+//
+const screenOptions = {
+  headerShown: false,
+};
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+     <StatusBar style="auto" />
+     <NavigationContainer>
+      <Stack.Navigator screenOptions={screenOptions}>
+        <Stack.Screen  name='onboard' component={Home}/>
+        <Stack.Screen  name='register' component={Register}/>
+        <Stack.Screen name='dasboard' component={Dashboard}/>
+        <Stack.Screen name='studyspace' component={Studyspace}/>
+        <Stack.Screen name='studyspacetwo' component={StudyspaceTwo}/>
+        <Stack.Screen name='exammodule' component={ExamModule}/>
+        <Stack.Screen name='answer' component={AnswerSheet}/>
+      </Stack.Navigator>
+     </NavigationContainer>
+     
+    </>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
