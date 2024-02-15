@@ -11,6 +11,11 @@ const Colors = {
     graphComPreColor:"#A06AF9",
     purple:"#A06AF9",
     chipColor:"#A5F59C",
+    titlCardbg: "#06C270",
+    titleHeading: "#4FE3A3",
+    redChip:"#A95C5C"
+
+
 };
 
 export default Colors;

@@ -72,7 +72,7 @@ const Dashboard = () => {
               <Image source={require("../img/l_one.png")} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={dashboardStyle.mainNav}>
+            <TouchableOpacity style={dashboardStyle.mainNav} onPress={()=>{Navigator.navigate('written')}}>
               <Text style={[dashboardStyle.textColor, { fontSize: 18 }]}>
                 Written Comprehension
               </Text>

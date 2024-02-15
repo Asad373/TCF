@@ -36,7 +36,9 @@ const Register = () => {
               <InputField
                 hint={"jhonedoe@example.com"}
                 type={false}
+                multilieflag={false}
                 onVlaueChnaged={emailCallBack}
+                fontSizePx={16}
               ></InputField>
             </View>
             <View style={RegisStyle.InputContainer}>
@@ -45,7 +47,9 @@ const Register = () => {
                 <InputField
                   hint={"Jhone Doe"}
                   type={false}
+                  multilieflag={false}
                   onVlaueChnaged={emailCallBack}
+                  fontSizePx={20}
                 ></InputField>
               </View>
             </View>
@@ -55,7 +59,9 @@ const Register = () => {
                 <InputField
                   hint={"*****"}
                   type={true}
+                  multilieflag={false}
                   onVlaueChnaged={emailCallBack}
+                  fontSizePx={16}
                 ></InputField>
               </View>
             </View>

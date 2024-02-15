@@ -9,6 +9,9 @@ import Studyspace from './screens/Studyspace';
 import StudyspaceTwo from './screens/StudyspaceTwo';
 import ExamModule from './screens/ExamModule';
 import AnswerSheet from './screens/AnswerSheet';
+import Results from './screens/Results';
+import WrittenComp from './screens/WritteNComp';
+import WrittenCompAss from './screens/WrittenCompAss';
 
 
 
@@ -32,6 +35,9 @@ export default function App() {
         <Stack.Screen name='studyspacetwo' component={StudyspaceTwo}/>
         <Stack.Screen name='exammodule' component={ExamModule}/>
         <Stack.Screen name='answer' component={AnswerSheet}/>
+        <Stack.Screen  name='result' component={Results}/>
+        <Stack.Screen  name='written' component={WrittenComp}/>
+        <Stack.Screen  name='wasses' component={WrittenCompAss}/>
       </Stack.Navigator>
      </NavigationContainer>
      

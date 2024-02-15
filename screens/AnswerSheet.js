@@ -4,7 +4,9 @@ import ssStyle from "../style/ssstyle";
 import ProgressBar from "../components/ProgressBar";
 import MCRadioButton from "../components/McqQuestion";
 import { ScrollView } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 const AnswerSheet = () => {
+  const Navigator = useNavigation();
   return (
     <View style={examModuleStyle.mainConatiner}>
         <ScrollView>
@@ -44,7 +46,7 @@ const AnswerSheet = () => {
         <Text style = {examModuleStyle.btnSkipTextDecor}>Skip</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style = {examModuleStyle.btnNext}>
+        <TouchableOpacity style = {examModuleStyle.btnNext} onPress={()=>{Navigator.navigate('result')}}>
         <Text style = {examModuleStyle.btnTextColor}>Next</Text>
         </TouchableOpacity>
         </View>

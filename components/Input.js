@@ -4,10 +4,10 @@ import { Ionicons } from '@expo/vector-icons'; // You might need to install '@ex
 import Colors from '../colors/Color';
 
 
-const InputField = ({hint,type,onVlaueChnaged}) => {
+const InputField = ({hint,type,onVlaueChnaged, multilieflag, fontSizePx}) => {
   const [text, setText] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-
+  
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
@@ -23,11 +23,12 @@ const InputField = ({hint,type,onVlaueChnaged}) => {
   return (
     <View style={styles.inputContainerInner}>
       <TextInput
-        style={styles.input}
+        style={[styles.input, {fontSize:fontSizePx}]}
         placeholderTextColor={Colors.white}
-        fontSize={20}
+        fontSize={fontSizePx}
         placeholder={hint}
         value={text}
+        multiline={multilieflag}
         secureTextEntry = {type && !showPassword}
         onChangeText={HandleChange}
       />
