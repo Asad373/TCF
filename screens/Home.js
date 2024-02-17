@@ -27,7 +27,7 @@ const Home = () => {
   };
 
   const loadDashboadr = () => {
-    Navigator.navigate("dasboard");
+    Navigator.navigate("login");
   };
 
   return (

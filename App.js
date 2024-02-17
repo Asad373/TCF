@@ -12,6 +12,7 @@ import AnswerSheet from './screens/AnswerSheet';
 import Results from './screens/Results';
 import WrittenComp from './screens/WritteNComp';
 import WrittenCompAss from './screens/WrittenCompAss';
+import Login from './screens/Login';
 
 
 
@@ -38,6 +39,7 @@ export default function App() {
         <Stack.Screen  name='result' component={Results}/>
         <Stack.Screen  name='written' component={WrittenComp}/>
         <Stack.Screen  name='wasses' component={WrittenCompAss}/>
+        <Stack.Screen  name='login' component={Login}/>
       </Stack.Navigator>
      </NavigationContainer>
      
