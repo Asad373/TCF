@@ -36,7 +36,7 @@ const Dashboard = () => {
                   options={count}
                   onSelect={Onselect}
                 ></CountryDropDown>
-                <TouchableOpacity style={dashboardStyle.profileContainer}>
+                <TouchableOpacity style={dashboardStyle.profileContainer} onPress={()=>{Navigator.navigate('profile')}}>
                   <Image source={require("../img/profile.png")} />
                 </TouchableOpacity>
               </View>
