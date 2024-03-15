@@ -8,13 +8,13 @@ const Studyspace = () => {
     const Navigator  = useNavigation();
 
       const loadNext = ()=>{
-      Navigator.navigate('studyspacetwo')
+      Navigator.navigate('login')
     }
   return (
     <View style={ssStyle.mainContainer}>
       <View style={ssStyle.subContainer}>
         <View style={ssStyle.actionBar}>
-          <TouchableOpacity style={ssStyle.backButton}>
+          <TouchableOpacity style={ssStyle.backButton} onPress={()=>{Navigator.goBack()}}>
             <Image source={require("../img/back.png")} />
           </TouchableOpacity>
           <View style={ssStyle.heading}>
@@ -23,6 +23,7 @@ const Studyspace = () => {
             </Text>
           </View>
         </View>
+        <ScrollView>
         <View style={ssStyle.cot}>
           <View style={ssStyle.circleContainer}>
             <View style={ssStyle.circularBox}>
@@ -62,6 +63,7 @@ const Studyspace = () => {
             </View>
           </View>
         </View>
+        </ScrollView>
       </View>
     </View>
   );

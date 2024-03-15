@@ -15,7 +15,7 @@ const WrittenComp = () => {
       <ScrollView style={{ display: "flex", flexDirection: "column" }}>
         <View style={examModuleStyle.subContainer}>
           <View style={ssStyle.actionBar}>
-            <TouchableOpacity style={ssStyle.backButton}>
+            <TouchableOpacity style={ssStyle.backButton} onPress={()=>{Navigator.goBack()}}>
               <Image source={require("../img/back.png")} />
             </TouchableOpacity>
             <View style={ssStyle.heading}>
@@ -24,7 +24,7 @@ const WrittenComp = () => {
           </View>
           <View style={examModuleStyle.contentContainer}>
             <View>
-              <TouchableOpacity style={writtenComStyle.boxTest} onPress={()=>{Navigator.navigate('wasses')}}>
+              <TouchableOpacity style={writtenComStyle.boxTest} onPress={()=>{Navigator.navigate('answer')}}>
                 <View style={resultStyle.assRes}>
                   <View style={writtenComStyle.answerContainer}>
                     <Text style={writtenComStyle.chipCorrect}>12/24</Text>

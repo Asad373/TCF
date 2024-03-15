@@ -41,8 +41,8 @@ const examModuleStyle = StyleSheet.create({
         marginTop:5,
         marginStart:10,
         marginBottom:5,
-
-        backgroundColor:Colors.chipColor,
+        borderWidth:2,
+        borderColor:Colors.chipColor,
     },
 
     questionText:{
@@ -58,7 +58,6 @@ const examModuleStyle = StyleSheet.create({
     bottomNavigation:{
         flex:1, 
         width:'100%',
-        
         justifyContent:'flex-end',
         alignItems:'flex-start',
     }, 
@@ -87,6 +86,14 @@ const examModuleStyle = StyleSheet.create({
     paddingStart:20,
     backgroundColor:Colors.primary,
     marginRight:40,
+    borderRadius:30
+   },
+   ValueChip:{
+    padding:5,
+    paddingEnd:20,
+    paddingStart:20,
+    backgroundColor:Colors.chipColor,
+    marginTop:5,
     borderRadius:30
    },
    btnTextColor:{

@@ -18,13 +18,10 @@ export const Styles = StyleSheet.create({
 
       onboardHeading:{
         marginStart:25,
-        fontSize:36,
-        color:"#FFFFFF",
-        fontWeight:'bold',
       },
 
       textContainer:{
-        marginTop:-150
+        marginTop:-90
       },
 
       mainUiContainer:{

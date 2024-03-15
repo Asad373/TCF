@@ -6,8 +6,9 @@ import MCRadioButton from "../components/McqQuestion";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import Colors from "../colors/Color";
-const AnswerSheet = () => {
-  const Navigator = useNavigation();
+import AudioPlayer from "../components/AudioPlayer";
+const LsiteningModule = () => {
+    const Navigator  = useNavigation();
   return (
     <View style={examModuleStyle.mainConatiner}>
         <ScrollView>
@@ -24,18 +25,20 @@ const AnswerSheet = () => {
         </View>
         <View style={examModuleStyle.contentContainer}>
           <View style={examModuleStyle.progressActionBar}>
-        
+            <View style={examModuleStyle.progressWidth}>
+              <ProgressBar></ProgressBar>
+            </View>
+            <View style={{ justifyContent: "center", alignItems: "center" }}>
+              <View style={examModuleStyle.verticalDivider} />
+            </View>
             <View style={examModuleStyle.countChip}>
-              <Text style = {{color:Colors.white}}>1/20</Text>
+              <Text style = {{color:Colors.white}}>Tips</Text>
             </View>
           </View>
           <View style={examModuleStyle.questionConatiner}>
-            <Text style={examModuleStyle.questionText}>
-              Je te laisse, je dois aller à la poste, je veux... ... un colis en
-              Espagne{" "}
-            </Text>
+            <AudioPlayer></AudioPlayer>
           </View>
-          <View style={{ marginTop: 50 }}>
+          <View style={{ marginTop: 30 }}>
             <MCRadioButton></MCRadioButton>
           </View>
         </View>
@@ -44,10 +47,14 @@ const AnswerSheet = () => {
       <View style = {examModuleStyle.bottomNavigation}>
         <View style = {examModuleStyle.btnBottom}>
         <TouchableOpacity style = {examModuleStyle.btnSkip}>
-        <Text style = {{color:Colors.backGround}}>Skip</Text>
+        <Text style = {examModuleStyle.btnSkipTextDecor}>Skip</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style = {examModuleStyle.btnNext} onPress={()=>{Navigator.navigate('result')}}>
+        <View style = {examModuleStyle.ValueChip} > 
+        <Text>1/20</Text>
+        </View>
+
+        <TouchableOpacity style = {examModuleStyle.btnNext} onPress={()=>{ Navigator.navigate('result')}}> 
         <Text style = {examModuleStyle.btnTextColor}>Next</Text>
         </TouchableOpacity>
         </View>
@@ -58,4 +65,4 @@ const AnswerSheet = () => {
   );
 };
 
-export default AnswerSheet;
+export default LsiteningModule;

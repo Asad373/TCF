@@ -39,9 +39,10 @@ const Home = () => {
         ></Image>
       </View>
       <View style={Styles.textContainer}>
-        <Text style={Styles.onboardHeading}>
-          Ace at {"\n"}Entrainement{"\n"}Francais Exam
-        </Text>
+        
+        <Image source={require('../img/logo.png')} style={Styles.onboardHeading}>
+        
+        </Image>
       </View>
       <View style={Styles.mainUiContainer}>
         <Dropdown options={lang} onSelect={onSelect}></Dropdown>
@@ -54,10 +55,10 @@ const Home = () => {
           </View>
         </TouchableOpacity>
         <View style={Styles.loginMainContiner}>
-          <View style={Styles.googleButton}>
+          <TouchableOpacity style={Styles.googleButton} onPress={()=>{Navigator.navigate('admin')}}>
             <Image source={require("../img/ic_google.png")} />
-          </View>
-          <TouchableOpacity style = {Styles.loginButton} onPress={loadDashboadr}>
+          </TouchableOpacity>
+          <TouchableOpacity style = {Styles.loginButton} onPress={()=>{Navigator.navigate('login')}}>
           <View>
             <Text style={Styles.Text}>Login</Text>
           </View>

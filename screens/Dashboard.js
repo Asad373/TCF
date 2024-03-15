@@ -4,6 +4,7 @@ import { ScrollView } from "react-native-gesture-handler";
 import Dropdown from "../components/Dropdown";
 import CountryDropDown from "../components/CountryDropdown";
 import ProgressGraph from "../components/Graph";
+import Colors from "../colors/Color";
 import { useNavigation } from "@react-navigation/native";
 const Dashboard = () => {
   const Navigator = useNavigation();  
@@ -19,7 +20,7 @@ const Dashboard = () => {
   };
 
   const navigateTo= ()=>{
-      Navigator.navigate('exammodule')
+      Navigator.navigate('oralSet')
   }
   return (
     <View style={dashboardStyle.mainConatier}>
@@ -72,17 +73,25 @@ const Dashboard = () => {
               <Image source={require("../img/l_one.png")} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={dashboardStyle.mainNav} onPress={()=>{Navigator.navigate('written')}}>
+            <TouchableOpacity style={dashboardStyle.mainNav} onPress={()=>{Navigator.navigate('WrittenCom')}}>
               <Text style={[dashboardStyle.textColor, { fontSize: 18 }]}>
                 Written Comprehension
               </Text>
               <Image source={require("../img/l_two.png")} />
             </TouchableOpacity>
-            <TouchableOpacity style={dashboardStyle.mainNav}>
+            <TouchableOpacity style={dashboardStyle.mainNav} onPress={()=>{Navigator.navigate('examset')}}>
               <Text style={[dashboardStyle.textColor, { fontSize: 18 }]}>
                 Written Expression
               </Text>
               <Image source={require("../img/l_three.png")} />
+            </TouchableOpacity>
+
+            <TouchableOpacity style={[{paddingBottom:30, paddingTop:30, backgroundColor: Colors.gray},dashboardStyle.mainNav,]} >
+              <Text style={[dashboardStyle.textColor, { fontSize: 18 }]}>
+                Oral Expression {" "}
+                <Image source={require('../img/lock.png')}></Image>
+              </Text>
+              <Image width={200} height={200} source={require("../img/card_three.png")} />
             </TouchableOpacity>
 
             <View

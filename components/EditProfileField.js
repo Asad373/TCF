@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons'; // You might need to install '@ex
 import Colors from '../colors/Color';
 
 
-const InputField = ({hint,type,onVlaueChnaged, multilieflag, fontSizePx, isnull}) => {
+const EditField = ({hint,type,onVlaueChnaged, multilieflag, fontSizePx}) => {
   const [text, setText] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   
@@ -21,7 +21,7 @@ const InputField = ({hint,type,onVlaueChnaged, multilieflag, fontSizePx, isnull}
     onVlaueChnaged(value)
  }
   return (
-    <View style={isnull?styles.inputContainerInnerError:styles.inputContainerInner}>
+    <View style={styles.inputContainerInner}>
       <TextInput
         style={[styles.input, {fontSize:fontSizePx}]}
         placeholderTextColor={Colors.white}
@@ -53,15 +53,9 @@ const InputField = ({hint,type,onVlaueChnaged, multilieflag, fontSizePx, isnull}
 const styles = StyleSheet.create({
   inputContainerInner: {
     flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.inputBorderColor,
-    alignItems: 'center',
-    paddingBottom: 5,
-  },
-  inputContainerInnerError: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: Colors.error,
+    borderBottomWidth: 2,
+    
+    borderBottomColor: Colors.cardBf,
     alignItems: 'center',
     paddingBottom: 5,
   },
@@ -77,4 +71,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InputField;
+export default EditField;

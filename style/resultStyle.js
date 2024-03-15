@@ -118,6 +118,31 @@ bottomButton: {
     padding: 20,
     alignItems: "center",
   },
+
+  leaveExamBtn:{
+    position: "relative",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    borderRadius: 30,
+    marginTop: 20,
+    borderWidth:2,
+    borderColor:Colors.gray,
+    marginLeft: 20,
+    marginRight: 20,
+    padding: 20,
+    alignItems: "center",
+  },
+
+  blueBox:{
+    borderWidth:2,
+    borderColor:Colors.primary,
+    padding:15,
+    borderRadius:20,
+    marginTop:20,
+    marginBottom:20,
+  }
+
 });
 
 export default resultStyle

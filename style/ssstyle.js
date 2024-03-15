@@ -5,7 +5,8 @@ import { defineAnimation } from "react-native-reanimated";
 const ssStyle = StyleSheet.create({
     mainContainer:{
         flex:1,
-        backgroundColor:Colors.backGround
+        backgroundColor:Colors.backGround,
+        
     },
     subContainer:{
         marginTop:50,

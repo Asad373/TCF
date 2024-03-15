@@ -9,7 +9,7 @@ const RadioButton = ({ selected, onPress }) => (
 );
 
 const TwoViews = () => {
-  const [selectedView, setSelectedView] = useState('A');
+  const [selectedView, setSelectedView] = useState('');
 
   const handleSelectView = (view) => {
     if (selectedView !== view) {
@@ -20,29 +20,30 @@ const TwoViews = () => {
   return (
     <View style={styles.container}>
       <View style={styles.view}>
-        <View style={styles.label}>
+        <TouchableOpacity style={styles.label}  onPress={() => handleSelectView('A')}>
           <Text style={styles.text}>chien</Text>
           <RadioButton selected={selectedView === 'A'} onPress={() => handleSelectView('A')} />
-        </View>
+        </TouchableOpacity>
       </View>
-      <View style={styles.view}>
+      <TouchableOpacity style={styles.view} onPress={() => handleSelectView('B')}>
         <View style={styles.label}>
           <Text style={styles.text}>hat</Text>
           <RadioButton selected={selectedView === 'B'} onPress={() => handleSelectView('B')} />
         </View>
-      </View>
-      <View style={styles.view}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.view} onPress={() => handleSelectView('C')}>
         <View style={styles.label}>
           <Text style={styles.text}>stylo</Text>
           <RadioButton selected={selectedView === 'C'} onPress={() => handleSelectView('C')} />
         </View>
-      </View>
-      <View style={styles.view}>
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.view} onPress={() => handleSelectView('D')}>
         <View style={styles.label}>
           <Text style={styles.text}>chateux</Text>
           <RadioButton selected={selectedView === 'D'} onPress={() => handleSelectView('D')} />
         </View>
-      </View>
+      </TouchableOpacity>
+
     </View>
   );
 };

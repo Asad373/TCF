@@ -13,9 +13,13 @@ const Colors = {
     chipColor:"#A5F59C",
     titlCardbg: "#06C270",
     titleHeading: "#4FE3A3",
-    redChip:"#A95C5C"
-
-
+    redChip:"#A95C5C",
+    cardBf:"#262A34",
+    profileEmail:"#86FFCA",
+    barbg:"#FFFFFF",
+    badgeColor:"#06C270",
+    extraColor:"#959EB7", 
+    error:"#FF0000"
 };
 
 export default Colors;

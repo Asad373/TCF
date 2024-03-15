@@ -7,7 +7,7 @@ import resultStyle from "../style/resultStyle";
 
 import Colors from "../colors/Color";
 
-const Results = () => {
+const WrittenExpResult = () => {
   const Navigator = useNavigation();
   return (
     <View style={examModuleStyle.mainConatiner}>
@@ -18,7 +18,7 @@ const Results = () => {
               <Image source={require("../img/back.png")} />
             </TouchableOpacity>
             <View style={ssStyle.heading}>
-              <Text style={[ssStyle.textColor, { fontSize: 18 }]}>Results</Text>
+              <Text style={[ssStyle.textColor, { fontSize: 18 }]}>Written Exp Result</Text>
             </View>
           </View>
           <View style={examModuleStyle.contentContainer}>
@@ -27,12 +27,10 @@ const Results = () => {
                 <View style={resultStyle.topContent}>
                   <View style={resultStyle.textBox}>
                     <Text style={resultStyle.textColorWhite}>
-                      Congrats, you completed your test with great accuracy.
+                      You have completed your exam! here is correct answer you could have write
                     </Text>
                   </View>
-                  <View style={resultStyle.imgBox}>
-                    <Image source={require("../img/oval.png")} />
-                  </View>
+                 
                 </View>
                 <View style={resultStyle.horizontalDivider} />
                 <View style={{ marginBottom: 20 }}>
@@ -48,51 +46,27 @@ const Results = () => {
                   </View>
                 </View>
               </View>
-
-              <View style={resultStyle.horizontalDividerBlack} />
-              <View style={resultStyle.boxTest}>
-                <View style={resultStyle.assRes}>
-                  <View style={resultStyle.assFirstSection}>
-                    <Text style={resultStyle.textColorGray}>Report</Text>
-                    <View style={resultStyle.answerContainer}>
-                      <Text style={resultStyle.chipCorrect}>12/24</Text>
-                      <Text style={resultStyle.textColorWhite}>
-                        Correct Answer
-                      </Text>
-                    </View>
-                    <View style={resultStyle.answerContainer}>
-                      <Text
-                        style={[
-                          resultStyle.chipCorrect,
-                          { backgroundColor: Colors.redChip },
-                        ]}
-                      >
-                        12/24
-                      </Text>
-                      <Text style={resultStyle.textColorWhite}>
-                        Incorrect Answer
-                      </Text>
-                    </View>
-                    <TouchableOpacity style={resultStyle.assExamBtn} onPress={()=>{Navigator.navigate('written')}}>
-                      <Text style={resultStyle.textColorWhite}>
-                        Assess My Exam
-                      </Text>
-                    </TouchableOpacity>
-                  </View>
-                  <View>
-                    <View>
-                      <Image
-                        style={{ width: 100, height: 100 }}
-                        source={require("../img/circlepro.png")}
-                      ></Image>
-                    </View>
-                  </View>
-                </View>
+              <View>
+                <Text style = {{fontSize:20, color:Colors.white, marginTop:10, marginBottom:10}}>
+                L'impact des réseaux sociaux sur la société
+                </Text>
+              </View> 
+              <View style = {resultStyle.blueBox}>
+               <Text style = {{color:Colors.cardBf}}>ANSWER YOU HAVE WRITTEN</Text> 
+              <Text style = {{fontSize:15, color:Colors.white, marginTop:10, marginBottom:10}}>
+              La technologie transforme notre quotidien. Les réseaux sociaux facilitent la communication, mais soulèvent aussi des préoccupations. Trouver l'équilibre entre la connectivité et la préservation de la vie privée devient crucial dans cette ère numérique en constante évolution.
+                </Text>
+              </View>
+              <View style = {resultStyle.blueBox}>
+               <Text style = {{color:Colors.cardBf}}>ANSWER YOU COULD HAVE WRITTEN</Text> 
+              <Text style = {{fontSize:15, color:Colors.white, marginTop:10, marginBottom:10}}>
+              La technologie transforme notre quotidien. Les réseaux sociaux facilitent la communication, mais soulèvent aussi des préoccupations. Trouver l'équilibre entre la connectivité et la préservation de la vie privée devient crucial dans cette ère numérique en constante évolution.
+                </Text>
               </View>
             </View>
           </View>
         </View>
-      </ScrollView>
+     
       <TouchableOpacity>
         <View style={resultStyle.leaveExamBtn}>
           <Text style={resultStyle.textColorGray}>Restart Exam</Text>
@@ -103,8 +77,10 @@ const Results = () => {
           <Text style={resultStyle.textColorWhite}>Leave Exam</Text>
         </View>
       </TouchableOpacity>
+      </ScrollView>
     </View>
+
   );
 };
 
-export default Results;
+export default WrittenExpResult;

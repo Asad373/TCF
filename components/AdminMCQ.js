@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image, TextInput } from 'react-native';
 import Colors from '../colors/Color';
 
 const RadioButton = ({ selected, onPress }) => (
   <TouchableOpacity onPress={onPress} style={[styles.radioButton, selected && styles.selected]}>
-    {selected && <View style={styles.radioButtonInner} />}
+    {selected && <View style={styles.radioButtonInner} ><Image source={require('../img/tick.png')}></Image></View>}
   </TouchableOpacity>
 );
 
 const TwoViews = () => {
-  const [selectedView, setSelectedView] = useState('A');
+  const [selectedView, setSelectedView] = useState('');
 
   const handleSelectView = (view) => {
     if (selectedView !== view) {
@@ -19,16 +19,48 @@ const TwoViews = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.view} onPress = {() => handleSelectView('A')}>
+      <View style={styles.view}>
         <View style={styles.label}>
-          <Text style={styles.text}>A2</Text>
+        <TextInput
+      style={styles.input}
+      placeholder="Please write option here"
+      placeholderTextColor="#ffffff"
+      selectionColor={Colors.primary}
+    />
           <RadioButton selected={selectedView === 'A'} onPress={() => handleSelectView('A')} />
         </View>
       </View>
       <View style={styles.view}>
         <View style={styles.label}>
-          <Text style={styles.text}>B2</Text>
+        <TextInput
+      style={styles.input}
+      placeholder="Please write option here"
+      placeholderTextColor="#ffffff"
+      selectionColor={Colors.primary}
+    />
           <RadioButton selected={selectedView === 'B'} onPress={() => handleSelectView('B')} />
+        </View>
+      </View>
+      <View style={styles.view}>
+        <View style={styles.label}>
+        <TextInput
+      style={styles.input}
+      placeholder="Please write option here"
+      placeholderTextColor="#ffffff"
+      selectionColor={Colors.primary}
+    />
+          <RadioButton selected={selectedView === 'C'} onPress={() => handleSelectView('C')} />
+        </View>
+      </View>
+      <View style={styles.view}>
+        <View style={styles.label}>
+        <TextInput
+      style={styles.input}
+      placeholder="Please write option here"
+      placeholderTextColor="#ffffff"
+      selectionColor={Colors.primary}
+    />
+          <RadioButton selected={selectedView === 'D'} onPress={() => handleSelectView('D')} />
         </View>
       </View>
     </View>
@@ -39,7 +71,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     justifyContent: 'space-between',
-    marginTop:20,
+    marginTop:10,
   },
   view: {
     backgroundColor: 'transparent',
@@ -72,12 +104,17 @@ const styles = StyleSheet.create({
     width: 22,
     height: 22,
     borderRadius: 30/2,
-    backgroundColor: 'white',
+    backgroundColor: 'green',
+    justifyContent:'center',
+    alignItems:'center'
   },
   selected: {
     borderColor: 'green',
     borderWidth: 4,
   },
+  input:{
+    color:Colors.white
+  }
 });
 
 export default TwoViews;

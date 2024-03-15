@@ -23,7 +23,7 @@ const Register = () => {
   return (
     <View style={RegisStyle.mainContainer}>
       <ScrollView style={RegisStyle.mainContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{Navigator.goBack()}}>
           <View style={RegisStyle.backButtonContainer}>
             <Image source={require("../img/back.png")} />
           </View>
@@ -55,6 +55,19 @@ const Register = () => {
             </View>
             <View style={RegisStyle.InputContainer}>
               <Text style={RegisStyle.TextColor}>SET PASSWORD</Text>
+              <View style={RegisStyle.InputContainer}>
+                <InputField
+                  hint={"*****"}
+                  type={true}
+                  multilieflag={false}
+                  onVlaueChnaged={emailCallBack}
+                  fontSizePx={16}
+                ></InputField>
+              </View>
+            </View>
+
+            <View style={RegisStyle.InputContainer}>
+              <Text style={RegisStyle.TextColor}>CONFIRM PASSWORD</Text>
               <View style={RegisStyle.InputContainer}>
                 <InputField
                   hint={"*****"}
