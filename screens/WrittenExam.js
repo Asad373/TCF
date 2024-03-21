@@ -7,13 +7,21 @@ import MCRadioButton from "../components/McqQuestion";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import writtenExamStyle from "../style/WrittenExamStyle";
+import { useState } from "react";
+import Dialoge from "../components/Dialoge";
 
 const WrittenExam = () => {
     const Navigator  = useNavigation();
-    const onAnswerAdd =(value) => {
-
+    const onAnswerAdd =(value) => { }
+    const [isOpen, setIsopen] = useState(false);
+    const openTip = () =>{
+      setIsopen(true)
+    }
+    const onClose = () =>{
+      setIsopen(false)
     }
   return (
+    <>
     <View style={examModuleStyle.mainConatiner}>
         <ScrollView>
       <View style={examModuleStyle.subContainer}>
@@ -35,9 +43,11 @@ const WrittenExam = () => {
             <View style={{ justifyContent: "center", alignItems: "center" }}>
               <View style={examModuleStyle.verticalDivider} />
             </View>
-            <View style={writtenExamStyle.countChip}>
+
+            <TouchableOpacity style={writtenExamStyle.countChip} onPress={openTip}>
               <Text style = {examModuleStyle.btnTextColor}>Tips</Text>
-            </View>
+            </TouchableOpacity>
+
           </View>
           <View style={examModuleStyle.questionConatiner}>
             <Text style={examModuleStyle.questionText}>
@@ -57,9 +67,9 @@ const WrittenExam = () => {
       <View style = {examModuleStyle.bottomNavigation}>
         <View style = {writtenExamStyle.btnBottom}>
         <View style={writtenExamStyle.countChipFill}>
-              <Text>1/20</Text>
+              <Text style = {{fontWeight:'bold'}}>1/20</Text>
             </View>    
-        <TouchableOpacity style = {examModuleStyle.btnNext} onPress={()=>{ Navigator.navigate('writtenExpResult')}}> 
+        <TouchableOpacity style = {examModuleStyle.btnNext} onPress={()=>{ Navigator.navigate('writtenExpResult', {data:'WS'})}}> 
         <Text style = {examModuleStyle.btnTextColor}>Next</Text>
         </TouchableOpacity>
         </View>
@@ -67,6 +77,8 @@ const WrittenExam = () => {
       </View>
       
     </View>
+    <Dialoge isOpen={isOpen} onClose={onClose} title = {"Tip"} message={"think out the box to create it"}></Dialoge>
+    </>
   );
 };
 

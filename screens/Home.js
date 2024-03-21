@@ -1,8 +1,6 @@
 import {
   Text,
   View,
-  SafeAreaView,
-  StyleSheet,
   Image,
   TouchableOpacity,
 } from "react-native";
@@ -50,12 +48,12 @@ const Home = () => {
           <View style={Styles.registerButton}>
             <View style={Styles.registerButtonInnerContainer}>
               <Image source={require("../img/ic_email.png")} />
-              <Text style={Styles.Text}>Register yourself</Text>
+              <Text style={Styles.Text}>Create an account</Text>
             </View>
           </View>
         </TouchableOpacity>
         <View style={Styles.loginMainContiner}>
-          <TouchableOpacity style={Styles.googleButton} onPress={()=>{Navigator.navigate('admin')}}>
+          <TouchableOpacity style={Styles.googleButton}>
             <Image source={require("../img/ic_google.png")} />
           </TouchableOpacity>
           <TouchableOpacity style = {Styles.loginButton} onPress={()=>{Navigator.navigate('login')}}>

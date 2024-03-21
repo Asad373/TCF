@@ -20,7 +20,7 @@ const OralExamSet = () => {
             </TouchableOpacity>
             <View style={ssStyle.heading}>
               <Text style={[ssStyle.textColor, { fontSize: 18 }]}>
-                Oral Comprehension Sets
+                Listening Comprehension Sets
               </Text>
             </View>
           </View>

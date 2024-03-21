@@ -19,18 +19,20 @@ const TwoViews = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.view} onPress = {() => handleSelectView('A')}>
+
+      <TouchableOpacity style={styles.view} onPress = {() => handleSelectView('A')}>
         <View style={styles.label}>
           <Text style={styles.text}>A2</Text>
           <RadioButton selected={selectedView === 'A'} onPress={() => handleSelectView('A')} />
         </View>
-      </View>
-      <View style={styles.view}>
+      </TouchableOpacity>
+      
+      <TouchableOpacity style={styles.view}  onPress={() => handleSelectView('B')}>
         <View style={styles.label}>
           <Text style={styles.text}>B2</Text>
           <RadioButton selected={selectedView === 'B'} onPress={() => handleSelectView('B')} />
         </View>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };

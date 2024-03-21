@@ -10,20 +10,39 @@ const Login = () => {
   const Navigator = useNavigation();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-  const [isNull, setIsNull] = useState(false);
+  const [isEmailNull, setIsEmailNull] = useState(false);
+  const [isPasswordNull, setIsPasswordNull] = useState(false);
   
   const emailCallBack = (value) => {
     setEmail(value);
   };
-  const nameCallBack = (value) => {
+  const getPassword = (value) => {
     setName(value);
   };
 
   const continueTo = ()=>{
     if(email == "" && name == ""){
-      setIsNull(true)
+      setIsEmailNull(true);
+      setIsPasswordNull(true);
     }else{
-     Navigator.navigate('dashboard');
+        if(email == "" && name != ""){
+          setIsEmailNull(true);
+          setIsPasswordNull(false)
+        }else{
+          if(name == "" && email != ""){
+            setIsPasswordNull(true)
+            setIsEmailNull(false);
+          }else{
+              setIsEmailNull(false);
+              setIsPasswordNull(false);
+              if(email == "admin" && name == "admin"){
+                Navigator.navigate('admin')
+              }else{
+                Navigator.navigate('dashboard')
+              }
+               
+          }
+        }
     }
     
     
@@ -44,10 +63,10 @@ const Login = () => {
               <InputField
                 hint={"jhonedoe@example.com"}
                 type={false}
-                isnull={isNull}
+                isnull={isEmailNull}
                 multilieflag={false}
                 onVlaueChnaged={emailCallBack}
-                fontSizePx={16}
+                fontSizePx={16} 
               ></InputField>
             </View>
            
@@ -57,9 +76,9 @@ const Login = () => {
                 <InputField
                   hint={"*****"}
                   type={true}
-                  isnull={isNull}
+                  isnull={isPasswordNull}
                   multilieflag={false}
-                  onVlaueChnaged={emailCallBack}
+                  onVlaueChnaged={getPassword}
                   fontSizePx={16}
                 ></InputField>
               </View>

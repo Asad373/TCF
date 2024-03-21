@@ -2,20 +2,55 @@ import { View, Text, Image } from "react-native";
 import ssStyle from "../style/ssstyle";
 import { useNavigation } from "@react-navigation/native";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
-import RadioButtons from "../components/Level";
 import profileStyle from "../style/profileStyle";
-import ProgressCard from "../components/ProgressCard";
-import Colors from "../colors/Color";
-import Panel from "../components/Panel";
 import EditStyle from "../style/EditProfile";
-import InputField from "../components/Input";
 import EditField from "../components/EditProfileField";
+import { useState } from "react";
 const EditProfile = () => {
   const Navigator = useNavigation();
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [pass, setPass] = useState("");
 
-  const loadNext = () => {
-    Navigator.navigate("studyspacetwo");
-  };
+  const [isEmailNull, setEmailNull] = useState(false);
+  const [nameNull, setNameNull] = useState(false);
+  const [passNull, setPassNull] = useState(false);
+
+  const emailCallBack =(value)=>{
+     setEmail(value);
+  }
+
+  const NameCallBack =(value)=>{
+    setName(value);
+ }
+
+ const passCallBack =(value)=>{
+  setPass(value);
+}
+
+const saveProfile =()=>{
+if(email == ""){
+  setEmailNull(true)
+}else{
+  setEmailNull(false)
+}
+
+if(name == ""){
+  setNameNull(true)
+}else{
+  setNameNull(false)
+}
+
+if(pass == ""){
+  setPassNull(true)
+}else{
+  setPassNull(false)
+}
+
+if(email != "" && pass != null && name != null){
+  Navigator.navigate('profile')
+}
+}
   return (
     <View style={ssStyle.mainContainer}>
       <ScrollView>
@@ -35,9 +70,7 @@ const EditProfile = () => {
             <Text style={profileStyle.textColor}>Edit Profile</Text>
             <View>
               <TouchableOpacity
-                onPress={() => {
-                  Navigator.navigate("profile");
-                }}
+                onPress={saveProfile}
               >
                 <Text style={EditStyle.doneButton}>Done</Text>
               </TouchableOpacity>
@@ -50,13 +83,13 @@ const EditProfile = () => {
           </TouchableOpacity>
           <View style = {EditStyle.editPane}>
             <Text style = {EditStyle.textHeading}>YOUR NAME</Text>
-            <EditField hint={"Jhon Dow"} fontSizePx={20} onVlaueChnaged={()=>{}}></EditField>
+            <EditField hint={"Jhon Dow"} fontSizePx={20} onVlaueChnaged={NameCallBack} isNull={nameNull}></EditField>
 
             <Text style = {EditStyle.textHeading}>YOUR EMAIL</Text>
-            <EditField hint={"jhon@gmail.com"} type={'password'} fontSizePx={20} onVlaueChnaged={()=>{}}></EditField>
+            <EditField hint={"jhon@gmail.com"} type={'password'} fontSizePx={20} onVlaueChnaged={emailCallBack} isNull={isEmailNull}></EditField>
 
             <Text style = {EditStyle.textHeading}>YOUR PASSWORD</Text>
-            <EditField hint={"Lok@34Uk"} type={'password'} fontSizePx={20} onVlaueChnaged={()=>{}}></EditField>
+            <EditField hint={"******"} type={'password'} fontSizePx={20} onVlaueChnaged={passCallBack} isNull={passNull}></EditField>
           </View>
         </View>
       

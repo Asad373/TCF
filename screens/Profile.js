@@ -12,6 +12,7 @@ const Profile = () => {
 
   const loadNext = () => {
     Navigator.navigate("studyspacetwo");
+   
   };
   return (
     <View style={ssStyle.mainContainer}>
@@ -61,7 +62,7 @@ const Profile = () => {
               </View>
             </View>
           </View>
-          <TouchableOpacity style={profileStyle.logoutContainer}>
+          <TouchableOpacity style={profileStyle.logoutContainer} >
             <Text style={profileStyle.logoutHeading}>Log out</Text>
           </TouchableOpacity>
         </View>

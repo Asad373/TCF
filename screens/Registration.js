@@ -7,9 +7,16 @@ import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 const Register = () => {
   const Navigator = useNavigation();
-  const [emai, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [name, setName] = useState("");
-
+  const [password, setPass] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
+ 
+  const [isEmailNull, setEmailNull] = useState(false)
+  const [isNameNull, setNameNull] = useState(false)
+  const [isPassNull, setPassNull] = useState(false)
+  const [isConfirmNull, setConfirmNull] = useState(false)
+  const [passConfirmed, setPassCon] = useState(false)
   const emailCallBack = (value) => {
     setEmail(value);
   };
@@ -17,9 +24,51 @@ const Register = () => {
     setName(value);
   };
 
+  const passCallback = (value) =>{
+    setPass(value);
+  } 
+const confirmCallback = (value) =>{
+  setConfirmPass(value);
+}
+
   const continueTo = ()=>{
-     Navigator.navigate('studyspace');
+     if(email == ''){
+       setEmailNull(true)
+     }else{
+      setEmailNull(false)
+     }
+
+    if(name  == ''){
+      setNameNull(true)
+    }else{
+      setNameNull(false)
+    }
+
+    if(password == ""){
+      setPassNull(true)
+    }else{
+      setPassNull(false)
+    }
+
+    if(confirmPass == ""){
+      setConfirmNull(true)
+    }else{
+      setConfirmNull(false)
+    }
+     
+    if(password == confirmPass){
+      setPassCon(true)
+    }else{
+      setPassNull(true)
+      setConfirmNull(true)
+    }
+
+    if(email != "" && password != "" && name != "" && confirmPass != "" && passConfirmed == true){
+      Navigator.navigate('studyspace');
+    }
+     
   }
+
   return (
     <View style={RegisStyle.mainContainer}>
       <ScrollView style={RegisStyle.mainContainer}>
@@ -38,6 +87,7 @@ const Register = () => {
                 type={false}
                 multilieflag={false}
                 onVlaueChnaged={emailCallBack}
+                isnull={isEmailNull}
                 fontSizePx={16}
               ></InputField>
             </View>
@@ -48,7 +98,8 @@ const Register = () => {
                   hint={"Jhone Doe"}
                   type={false}
                   multilieflag={false}
-                  onVlaueChnaged={emailCallBack}
+                  onVlaueChnaged={nameCallBack}
+                  isnull={isNameNull}
                   fontSizePx={20}
                 ></InputField>
               </View>
@@ -60,7 +111,8 @@ const Register = () => {
                   hint={"*****"}
                   type={true}
                   multilieflag={false}
-                  onVlaueChnaged={emailCallBack}
+                  onVlaueChnaged={passCallback}
+                  isnull={isPassNull}
                   fontSizePx={16}
                 ></InputField>
               </View>
@@ -73,7 +125,8 @@ const Register = () => {
                   hint={"*****"}
                   type={true}
                   multilieflag={false}
-                  onVlaueChnaged={emailCallBack}
+                  onVlaueChnaged={confirmCallback}
+                  isnull={isConfirmNull}
                   fontSizePx={16}
                 ></InputField>
               </View>

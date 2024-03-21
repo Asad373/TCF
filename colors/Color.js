@@ -19,7 +19,8 @@ const Colors = {
     barbg:"#FFFFFF",
     badgeColor:"#06C270",
     extraColor:"#959EB7", 
-    error:"#FF0000"
+    error:"#FF0000", 
+    modalGray:'#777E90'
 };
 
 export default Colors;

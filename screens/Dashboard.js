@@ -68,7 +68,7 @@ const Dashboard = () => {
           <View>
             <TouchableOpacity style={dashboardStyle.mainNav} onPress={navigateTo}>
               <Text style={[dashboardStyle.textColor, { fontSize: 18 }]}>
-                Oral Comprehension
+                Listening Comprehension
               </Text>
               <Image source={require("../img/l_one.png")} />
             </TouchableOpacity>

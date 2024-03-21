@@ -6,22 +6,35 @@ import InputField from "../components/Input";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import Colors from "../colors/Color";
+import ModalComponent from "../components/ConfirmModal";
 const ForgotPass = () => {
   const Navigator = useNavigation();
-  const [emai, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [isEmailNull, setEmailNull] = useState(false);
+  const [isModalOPen, setIsModalOpen] = useState(false);
 
   const emailCallBack = (value) => {
     setEmail(value);
   };
-  const nameCallBack = (value) => {
-    setName(value);
-  };
 
+const closeModal = ()=>{
+     setIsModalOpen(false);
+}
+
+const onRedirect = ()=>{
+  setIsModalOpen(false)
+  Navigator.navigate('login')
+}
   const continueTo = ()=>{
-     Navigator.navigate('dasboard');
+     if(email == ""){
+      setEmailNull(true);
+     }else{
+      setEmailNull(false);
+      setIsModalOpen(true)
+     }
+   
   }
-  return (
+  return (<>
     <View style={RegisStyle.mainContainer}>
       <ScrollView style={RegisStyle.mainContainer}>
         <TouchableOpacity onPress={()=>{Navigator.goBack()}}>
@@ -38,6 +51,7 @@ const ForgotPass = () => {
               <InputField
                 hint={"jhonedoe@example.com"}
                 type={false}
+                isnull={isEmailNull}
                 multilieflag={false}
                 onVlaueChnaged={emailCallBack}
                 fontSizePx={16}
@@ -55,6 +69,8 @@ const ForgotPass = () => {
         </View>
       </TouchableOpacity>
     </View>
+    <ModalComponent isOpen={isModalOPen} onClose={closeModal} onRedirect={onRedirect} message={"An email sent to your email adress please follow to recover your account"}></ModalComponent>
+    </>
   );
 };
 

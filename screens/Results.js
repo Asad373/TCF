@@ -4,12 +4,37 @@ import ssStyle from "../style/ssstyle";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import resultStyle from "../style/resultStyle";
-
+import ModalComponent from "../components/ConfirmModal";
+import { useEffect, useState } from "react";
+import { useRoute } from "@react-navigation/native";
 import Colors from "../colors/Color";
 
+
 const Results = () => {
+  const route = useRoute();
+  const { data } = route.params
   const Navigator = useNavigation();
-  return (
+  useEffect(()=>{
+    console.log(data)
+  })
+  
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const ConfirMExit = () =>{
+    setIsOpen(true);
+    
+  }
+  const onClose= () =>{
+    setIsOpen(false);
+  }
+  const onRedirect = () =>{
+     setIsOpen(false);
+     Navigator.navigate('dashboard');
+  }
+
+
+   return (
+    <>
     <View style={examModuleStyle.mainConatiner}>
       <ScrollView style={{ display: "flex", flexDirection: "column" }}>
         <View style={examModuleStyle.subContainer}>
@@ -98,12 +123,14 @@ const Results = () => {
           <Text style={resultStyle.textColorGray}>Restart Exam</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={()=>{Navigator.navigate('dashboard')}}>
+      <TouchableOpacity onPress={ConfirMExit}>
         <View style={resultStyle.bottomButton}>
           <Text style={resultStyle.textColorWhite}>Leave Exam</Text>
         </View>
       </TouchableOpacity>
     </View>
+    <ModalComponent isOpen={isOpen} onClose={onClose} onRedirect={onRedirect} message={"Are you sure to exit the exam "}></ModalComponent>
+    </>
   );
 };
 

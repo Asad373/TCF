@@ -8,7 +8,7 @@ const Studyspace = () => {
     const Navigator  = useNavigation();
 
       const loadNext = ()=>{
-      Navigator.navigate('login')
+      Navigator.navigate('onboard')
     }
   return (
     <View style={ssStyle.mainContainer}>

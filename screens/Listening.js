@@ -1,4 +1,5 @@
-import { Text, View, TouchableOpacity, Image } from "react-native";
+import { Text, View, TouchableOpacity, Image,  } from "react-native";
+import Dialoge from "../components/Dialoge";
 import examModuleStyle from "../style/examModule";
 import ssStyle from "../style/ssstyle";
 import ProgressBar from "../components/ProgressBar";
@@ -7,9 +8,18 @@ import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import Colors from "../colors/Color";
 import AudioPlayer from "../components/AudioPlayer";
+import { useState } from "react";
 const LsiteningModule = () => {
     const Navigator  = useNavigation();
+    const [isOpen, setIsopen] = useState(false)
+    const openTip = () =>{
+      setIsopen(true)
+    }
+    const onClose = () =>{
+      setIsopen(false)
+    }
   return (
+    <>
     <View style={examModuleStyle.mainConatiner}>
         <ScrollView>
       <View style={examModuleStyle.subContainer}>
@@ -31,9 +41,11 @@ const LsiteningModule = () => {
             <View style={{ justifyContent: "center", alignItems: "center" }}>
               <View style={examModuleStyle.verticalDivider} />
             </View>
-            <View style={examModuleStyle.countChip}>
+
+            <TouchableOpacity style={examModuleStyle.countChip} onPress={openTip}>
               <Text style = {{color:Colors.white}}>Tips</Text>
-            </View>
+            </TouchableOpacity>
+
           </View>
           <View style={examModuleStyle.questionConatiner}>
             <AudioPlayer></AudioPlayer>
@@ -51,10 +63,10 @@ const LsiteningModule = () => {
         </TouchableOpacity>
 
         <View style = {examModuleStyle.ValueChip} > 
-        <Text>1/20</Text>
+        <Text style = {{fontWeight:'bold'}}>1/20</Text>
         </View>
 
-        <TouchableOpacity style = {examModuleStyle.btnNext} onPress={()=>{ Navigator.navigate('result')}}> 
+        <TouchableOpacity style = {examModuleStyle.btnNext} onPress={()=>{ Navigator.navigate('result',{data:"LS"})}}> 
         <Text style = {examModuleStyle.btnTextColor}>Next</Text>
         </TouchableOpacity>
         </View>
@@ -62,6 +74,9 @@ const LsiteningModule = () => {
       </View>
       
     </View>
+
+    <Dialoge isOpen={isOpen} onClose={onClose} title = {"Tip"} message={"think out the box to create it"}></Dialoge>
+    </>
   );
 };
 

@@ -4,12 +4,27 @@ import ssStyle from "../style/ssstyle";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import resultStyle from "../style/resultStyle";
-
+import ModalComponent from "../components/ConfirmModal";
+import { useState } from "react";
 import Colors from "../colors/Color";
 
 const WrittenExpResult = () => {
   const Navigator = useNavigation();
+  const [isOpen, setIsOpen] = useState(false);
+  
+  const ConfirMExit = () =>{
+    setIsOpen(true);
+    
+  }
+  const onClose= () =>{
+    setIsOpen(false);
+  }
+  const onRedirect = () =>{
+     setIsOpen(false);
+     Navigator.navigate('dashboard');
+  }
   return (
+    <>
     <View style={examModuleStyle.mainConatiner}>
       <ScrollView style={{ display: "flex", flexDirection: "column" }}>
         <View style={examModuleStyle.subContainer}>
@@ -40,7 +55,7 @@ const WrittenExpResult = () => {
                   </View>
                   <View style={resultStyle.bottomHeading}>
                     <Text style={resultStyle.textColorWhite}>
-                      Written comprehension
+                      Written Expression
                     </Text>
                     <Text style={resultStyle.textColorWhite}>14 mins</Text>
                   </View>
@@ -52,13 +67,13 @@ const WrittenExpResult = () => {
                 </Text>
               </View> 
               <View style = {resultStyle.blueBox}>
-               <Text style = {{color:Colors.cardBf}}>ANSWER YOU HAVE WRITTEN</Text> 
+               <Text style = {{color:Colors.textColorRegister}}>ANSWER YOU HAVE WRITTEN</Text> 
               <Text style = {{fontSize:15, color:Colors.white, marginTop:10, marginBottom:10}}>
               La technologie transforme notre quotidien. Les réseaux sociaux facilitent la communication, mais soulèvent aussi des préoccupations. Trouver l'équilibre entre la connectivité et la préservation de la vie privée devient crucial dans cette ère numérique en constante évolution.
                 </Text>
               </View>
               <View style = {resultStyle.blueBox}>
-               <Text style = {{color:Colors.cardBf}}>ANSWER YOU COULD HAVE WRITTEN</Text> 
+               <Text style = {{color:Colors.textColorRegister}}>ANSWER YOU COULD HAVE WRITTEN</Text> 
               <Text style = {{fontSize:15, color:Colors.white, marginTop:10, marginBottom:10}}>
               La technologie transforme notre quotidien. Les réseaux sociaux facilitent la communication, mais soulèvent aussi des préoccupations. Trouver l'équilibre entre la connectivité et la préservation de la vie privée devient crucial dans cette ère numérique en constante évolution.
                 </Text>
@@ -72,14 +87,15 @@ const WrittenExpResult = () => {
           <Text style={resultStyle.textColorGray}>Restart Exam</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity onPress={()=>{Navigator.navigate('dashboard')}}>
+      <TouchableOpacity onPress={ConfirMExit}>
         <View style={resultStyle.bottomButton}>
           <Text style={resultStyle.textColorWhite}>Leave Exam</Text>
         </View>
       </TouchableOpacity>
       </ScrollView>
     </View>
-
+    <ModalComponent isOpen={isOpen} onClose={onClose} onRedirect={onRedirect} message={"Are you sure to leave the exam "}></ModalComponent>
+    </>
   );
 };
 
