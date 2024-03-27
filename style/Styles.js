@@ -4,9 +4,17 @@ import Colors, { color } from "../colors/Color";
 export const Styles = StyleSheet.create({
     mainContainer:{
         flex:1,
-        backgroundColor:"#181A20",
+     
         
     },
+    background: {
+      flex: 1,
+      resizeMode: 'center', // or 'contain', 'stretch', 'repeat', 'center'
+      width: '100%', // or a specific width
+      height: '100%', // or a specific height
+      
+    },
+
     imgcontainer:{
         marginTop:-80
     }
@@ -89,7 +97,8 @@ export const Styles = StyleSheet.create({
 
     centerText: {
         textAlign: 'center',
-        color:Colors.textGray
+        color:Colors.textGray,
+        marginBottom:10,
       },
 
 })

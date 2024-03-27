@@ -6,10 +6,11 @@ const ssStyle = StyleSheet.create({
     mainContainer:{
         flex:1,
         backgroundColor:Colors.backGround,
-        
+    
     },
     subContainer:{
         marginTop:50,
+        marginBottom:50,
     },
 textColor:{
 color: Colors.white,

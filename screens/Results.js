@@ -11,11 +11,20 @@ import Colors from "../colors/Color";
 
 
 const Results = () => {
+  const [examType, setExamtype] = useState("");
+ 
   const route = useRoute();
-  const { data } = route.params
+  const { data } = route?.params
   const Navigator = useNavigation();
   useEffect(()=>{
     console.log(data)
+    if(data == "LS"){
+      setExamtype("Listening")
+    }else{
+      if(data == "WS"){
+        setExamtype("Written")
+      }
+    }
   })
   
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +40,16 @@ const Results = () => {
      setIsOpen(false);
      Navigator.navigate('dashboard');
   }
-
+ 
+  const restartExam = () =>{
+    if(data == "LS"){
+      Navigator.navigate('listen')
+    }else{
+      if(data == "WS"){
+        Navigator.navigate('exammodule')
+      }
+    }
+  }
 
    return (
     <>
@@ -67,7 +85,7 @@ const Results = () => {
                   </View>
                   <View style={resultStyle.bottomHeading}>
                     <Text style={resultStyle.textColorWhite}>
-                      Written comprehension
+                      {examType} comprehension
                     </Text>
                     <Text style={resultStyle.textColorWhite}>14 mins</Text>
                   </View>
@@ -118,7 +136,7 @@ const Results = () => {
           </View>
         </View>
       </ScrollView>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={restartExam}>
         <View style={resultStyle.leaveExamBtn}>
           <Text style={resultStyle.textColorGray}>Restart Exam</Text>
         </View>

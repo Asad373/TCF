@@ -2,7 +2,7 @@ import { Text, View, TouchableOpacity, Image } from "react-native";
 import examModuleStyle from "../style/examModule";
 import ssStyle from "../style/ssstyle";
 import ProgressBar from "../components/ProgressBar";
-import MCRadioButton from "../components/McqQuestion";
+import MCRadioButton from "../components/AnswerMCQ";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import Colors from "../colors/Color";
@@ -47,7 +47,7 @@ const AnswerSheet = () => {
         <Text style = {{color:Colors.backGround}}>Skip</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style = {examModuleStyle.btnNext} onPress={()=>{Navigator.navigate('result')}}>
+        <TouchableOpacity style = {examModuleStyle.btnNext} onPress={()=>{Navigator.navigate('result', {data:"AS"})}}>
         <Text style = {examModuleStyle.btnTextColor}>Next</Text>
         </TouchableOpacity>
         </View>

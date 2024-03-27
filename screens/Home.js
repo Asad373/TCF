@@ -3,18 +3,22 @@ import {
   View,
   Image,
   TouchableOpacity,
+  ImageBackground,
+  Dimensions
 } from "react-native";
 import { Styles } from "../style/Styles";
 import Dropdown from "../components/Dropdown";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ScrollView } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
-
+import { styles } from "react-native-3d-card/src/styles";
+import { useWindowDimensions } from "react-native";
 const Home = () => {
   const Navigator = useNavigation();
   const lang = ["English", "French", "Italian", "Hindi"];
   const [selectedLanguage, setSelectedLanguage] = useState();
-
+  const mWidth = useWindowDimensions().width
+  const mHeight = useWindowDimensions().height
   const onSelect = (value) => {
     setSelectedLanguage(value);
   };
@@ -29,7 +33,10 @@ const Home = () => {
   };
 
   return (
+    <>
+    <ImageBackground source={require('../img/bg.png')} style = {Styles.background}>
     <ScrollView style={Styles.mainContainer}>
+    
       <View style={Styles.imgcontainer}>
         <Image
           source={require("../img/background_img.png")}
@@ -68,7 +75,10 @@ const Home = () => {
           </Text>
         </View>
       </View>
+     
     </ScrollView>
+    </ImageBackground>
+    </>
   );
 };
 

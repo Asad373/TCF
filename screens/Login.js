@@ -1,4 +1,4 @@
-import { View, Text, Image, SafeAreaView } from "react-native";
+import { View, Text, Image, SafeAreaView, ImageBackground } from "react-native";
 import RegisStyle from "../style/RegisStyle";
 import { StatusBar } from "expo-status-bar";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
@@ -13,8 +13,22 @@ const Login = () => {
   const [isEmailNull, setIsEmailNull] = useState(false);
   const [isPasswordNull, setIsPasswordNull] = useState(false);
   
+//
+const validateEmail = (email) => {
+  // Regular expression to check email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+//
   const emailCallBack = (value) => {
-    setEmail(value);
+    if (validateEmail(value)) {
+      setEmail(value)
+      setIsEmailNull(false)
+    } else {
+      setEmail(value)
+      setIsEmailNull(true)
+    }
+   
   };
   const getPassword = (value) => {
     setName(value);
@@ -49,6 +63,7 @@ const Login = () => {
   }
   return (
     <View style={RegisStyle.mainContainer}>
+      <ImageBackground source={require('../img/bg_t.png')} style= {{flex:1}}>
       <ScrollView style={RegisStyle.mainContainer}>
         <TouchableOpacity onPress={()=>{Navigator.goBack()}}>
           <View style={RegisStyle.backButtonContainer} >
@@ -97,6 +112,7 @@ const Login = () => {
           <Text style={RegisStyle.buttonText}>Continue</Text>
         </View>
       </TouchableOpacity>
+      </ImageBackground>
     </View>
   );
 };

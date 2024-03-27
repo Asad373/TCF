@@ -37,7 +37,7 @@ const OralExamSet = () => {
                 </View>
                 <View style={ExamStyle.cardDetail}>
                   <View>
-                    <Text style={ExamStyle.cardTextDetail}>{"Oral"}</Text>
+                    <Text style={ExamStyle.cardTextDetail}>{"Listening"}</Text>
                   </View>
                   <View>
                     <Text style={ExamStyle.cardTextDetail}>
@@ -66,7 +66,7 @@ const OralExamSet = () => {
                 </View>
                 <View style={ExamStyle.cardDetail}>
                   <View>
-                    <Text style={ExamStyle.cardTextDetail}>{"Oral"}</Text>
+                    <Text style={ExamStyle.cardTextDetail}>{"Listening"}</Text>
                   </View>
                   <View>
                     <Text style={ExamStyle.cardTextDetail}>
@@ -97,7 +97,7 @@ const OralExamSet = () => {
                 </View>
                 <View style={ExamStyle.cardDetail}>
                   <View>
-                    <Text style={ExamStyle.cardTextDetail}>{"Oral"}</Text>
+                    <Text style={ExamStyle.cardTextDetail}>{"Listening"}</Text>
                   </View>
                   <View>
                     <Text style={ExamStyle.cardTextDetail}>
@@ -128,7 +128,7 @@ const OralExamSet = () => {
                 </View>
                 <View style={ExamStyle.cardDetail}>
                   <View>
-                    <Text style={ExamStyle.cardTextDetail}>{"Oral"}</Text>
+                    <Text style={ExamStyle.cardTextDetail}>{"Listening"}</Text>
                   </View>
                   <View>
                     <Text style={ExamStyle.cardTextDetail}>
@@ -162,7 +162,7 @@ const OralExamSet = () => {
                 </View>
                 <View style={ExamStyle.cardDetail}>
                   <View>
-                    <Text style={ExamStyle.cardTextDetail}>{"Oral"}</Text>
+                    <Text style={ExamStyle.cardTextDetail}>{"Listening"}</Text>
                   </View>
                   <View>
                     <Text style={ExamStyle.cardTextDetail}>
@@ -191,7 +191,7 @@ const OralExamSet = () => {
                 </View>
                 <View style={ExamStyle.cardDetail}>
                   <View>
-                    <Text style={ExamStyle.cardTextDetail}>{"Oral"}</Text>
+                    <Text style={ExamStyle.cardTextDetail}>{"Listening"}</Text>
                   </View>
                   <View>
                     <Text style={ExamStyle.cardTextDetail}>

@@ -15,9 +15,21 @@ const EditProfile = () => {
   const [isEmailNull, setEmailNull] = useState(false);
   const [nameNull, setNameNull] = useState(false);
   const [passNull, setPassNull] = useState(false);
-
+ //
+ const validateEmail = (email) => {
+  // Regular expression to check email format
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+ //
   const emailCallBack =(value)=>{
-     setEmail(value);
+    if (validateEmail(value)) {
+      setEmailNull(false)
+      setEmail(value)
+    } else {
+      setEmailNull(true)
+      setEmail(value)
+    }
   }
 
   const NameCallBack =(value)=>{
@@ -47,7 +59,7 @@ if(pass == ""){
   setPassNull(false)
 }
 
-if(email != "" && pass != null && name != null){
+if(email != "" && pass != "" && name != ""){
   Navigator.navigate('profile')
 }
 }
@@ -86,7 +98,7 @@ if(email != "" && pass != null && name != null){
             <EditField hint={"Jhon Dow"} fontSizePx={20} onVlaueChnaged={NameCallBack} isNull={nameNull}></EditField>
 
             <Text style = {EditStyle.textHeading}>YOUR EMAIL</Text>
-            <EditField hint={"jhon@gmail.com"} type={'password'} fontSizePx={20} onVlaueChnaged={emailCallBack} isNull={isEmailNull}></EditField>
+            <EditField hint={"jhon@gmail.com"} type={'text'} fontSizePx={20} onVlaueChnaged={emailCallBack} isNull={isEmailNull}></EditField>
 
             <Text style = {EditStyle.textHeading}>YOUR PASSWORD</Text>
             <EditField hint={"******"} type={'password'} fontSizePx={20} onVlaueChnaged={passCallBack} isNull={passNull}></EditField>

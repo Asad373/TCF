@@ -1,4 +1,4 @@
-import { View, Text, Image, SafeAreaView } from "react-native";
+import { View, Text, Image, SafeAreaView, ImageBackground } from "react-native";
 import RegisStyle from "../style/RegisStyle";
 import { StatusBar } from "expo-status-bar";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
@@ -12,9 +12,21 @@ const ForgotPass = () => {
   const [email, setEmail] = useState("");
   const [isEmailNull, setEmailNull] = useState(false);
   const [isModalOPen, setIsModalOpen] = useState(false);
-
+  //
+  const validateEmail = (email) => {
+    // Regular expression to check email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+  //
   const emailCallBack = (value) => {
-    setEmail(value);
+    if (validateEmail(value)) {
+     setEmail(value)
+     setEmailNull(false)
+    } else {
+      setEmail(value)
+      setEmailNull(true)
+    }
   };
 
 const closeModal = ()=>{
@@ -35,6 +47,7 @@ const onRedirect = ()=>{
    
   }
   return (<>
+  <ImageBackground source={require('../img/bg_t.png')} style = {{flex:1}}>
     <View style={RegisStyle.mainContainer}>
       <ScrollView style={RegisStyle.mainContainer}>
         <TouchableOpacity onPress={()=>{Navigator.goBack()}}>
@@ -69,6 +82,7 @@ const onRedirect = ()=>{
         </View>
       </TouchableOpacity>
     </View>
+    </ImageBackground>
     <ModalComponent isOpen={isModalOPen} onClose={closeModal} onRedirect={onRedirect} message={"An email sent to your email adress please follow to recover your account"}></ModalComponent>
     </>
   );

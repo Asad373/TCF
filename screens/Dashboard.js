@@ -1,4 +1,4 @@
-import { Text, View, Image, TouchableOpacity } from "react-native";
+import { Text, View, Image, TouchableOpacity, Platform } from "react-native";
 import dashboardStyle from "../style/dashboardStyle";
 import { ScrollView } from "react-native-gesture-handler";
 import Dropdown from "../components/Dropdown";
@@ -28,7 +28,7 @@ const Dashboard = () => {
         <View style={dashboardStyle.subContainer}>
           <View style={dashboardStyle.navContainer}>
             <Text style={[dashboardStyle.textColor, dashboardStyle.navHeading]}>
-              {" "}
+              {" "} 
               Dashboard
             </Text>
             <View style={dashboardStyle.navLeftContainer}>
@@ -55,8 +55,9 @@ const Dashboard = () => {
             >
               {"Aryan" + " "}
               <Image
-                style={{ margin: 100 }}
                 source={require("../img/hello.png")}
+                style={{ margin: 100, width:50, height:50, }}
+                resizeMode="contain"
               />
             </Text>
           </View>

@@ -1,4 +1,4 @@
-import { View, Text, Image, SafeAreaView } from "react-native";
+import { View, Text, Image, SafeAreaView, ImageBackground } from "react-native";
 import RegisStyle from "../style/RegisStyle";
 import { StatusBar } from "expo-status-bar";
 import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
@@ -17,8 +17,21 @@ const Register = () => {
   const [isPassNull, setPassNull] = useState(false)
   const [isConfirmNull, setConfirmNull] = useState(false)
   const [passConfirmed, setPassCon] = useState(false)
+  //
+  const validateEmail = (email) => {
+    // Regular expression to check email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+  //
   const emailCallBack = (value) => {
-    setEmail(value);
+    if (validateEmail(value)) {
+      setEmail(value)
+      setEmailNull(false)
+    } else {
+      setEmail(value)
+      setEmailNull(true)
+    }
   };
   const nameCallBack = (value) => {
     setName(value);
@@ -32,7 +45,7 @@ const confirmCallback = (value) =>{
 }
 
   const continueTo = ()=>{
-     if(email == ''){
+     if(email == '' || !validateEmail(email)){
        setEmailNull(true)
      }else{
       setEmailNull(false)
@@ -71,7 +84,9 @@ const confirmCallback = (value) =>{
 
   return (
     <View style={RegisStyle.mainContainer}>
+      <ImageBackground source={require('../img/bg_t.png')} style = {{flex:1}}>
       <ScrollView style={RegisStyle.mainContainer}>
+        
         <TouchableOpacity onPress={()=>{Navigator.goBack()}}>
           <View style={RegisStyle.backButtonContainer}>
             <Image source={require("../img/back.png")} />
@@ -139,6 +154,7 @@ const confirmCallback = (value) =>{
           <Text style={RegisStyle.buttonText}>Continue</Text>
         </View>
       </TouchableOpacity>
+      </ImageBackground>
     </View>
   );
 };

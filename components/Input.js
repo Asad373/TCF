@@ -11,6 +11,7 @@ const InputField = ({hint,type,onVlaueChnaged, multilieflag, fontSizePx, isnull}
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+ 
   const clearText = () => {
     setText('');
     onVlaueChnaged("")

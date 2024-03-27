@@ -6,6 +6,7 @@ const EditStyle  = StyleSheet.create({
     doneButton:{
  color:Colors.white,
   borderWidth:1,
+  overflow: 'hidden',
   backgroundColor:Colors.primary,
   paddingLeft:15,
   paddingRight:15,

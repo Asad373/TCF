@@ -4,7 +4,7 @@ const { width, height } = Dimensions.get("window");
 const RegisStyle = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: Colors.backGround,
+    
   },
 
   backButtonContainer: {
