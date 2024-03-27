@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import Colors from '../colors/Color';
 
+
 const RadioButton = ({ selected, isRed, onPress }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.radioButton, selected && styles.selected, isRed && styles.red]}>
+  <View onPress={onPress} style={[styles.radioButton, selected && styles.selected, isRed && styles.red]}>
     <View>
-    {selected && <View style={styles.radioButtonInner} /> }
+    {selected && <View style={[styles.radioButtonInner, isRed ? styles.radioButtonInnerError : styles.radioButtonInner]} >
+            {isRed?<Image source={require('../img/cross.png') } style = {{width:20, height:20}}/>:<Image source={require('../img/tick.png')}/>}
+        </View>}
     </View>
     
-  </TouchableOpacity>
+  </View>
 );
 
 const TwoViews = () => {
@@ -28,30 +31,30 @@ const TwoViews = () => {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.view} onPress={() => handleSelectView('A')}>
+      <View style={styles.view} onPress={() => handleSelectView('A')}>
         <View style={styles.label}>
           <Text style={styles.text}>Test</Text>
           <RadioButton selected={selectedViews.includes('A')}  onPress={() => handleSelectView('A')} />
         </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.view} onPress={() => handleSelectView('B')}>
+      </View>
+      <View style={styles.view} onPress={() => handleSelectView('B')}>
         <View style={styles.label}>
           <Text style={styles.text}>hat</Text>
           <RadioButton selected={selectedViews.includes('B')} isRed={selectedViews.includes('B')} onPress={() => handleSelectView('B')} />
         </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.view} onPress={() => handleSelectView('C')}>
+      </View>
+      <View style={styles.view} onPress={() => handleSelectView('C')}>
         <View style={styles.label}>
           <Text style={styles.text}>stylo</Text>
           <RadioButton selected={selectedViews.includes('C')} onPress={() => handleSelectView('C')} />
         </View>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.view} onPress={() => handleSelectView('D')}>
+      </View>
+      <View style={styles.view} onPress={() => handleSelectView('D')}>
         <View style={styles.label}>
           <Text style={styles.text}>chateux</Text>
           <RadioButton selected={selectedViews.includes('D')} onPress={() => handleSelectView('D')} />
         </View>
-      </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -93,7 +96,9 @@ const styles = StyleSheet.create({
     width: 22,
     height: 22,
     borderRadius: 30/2,
-    backgroundColor: 'white',
+    backgroundColor: 'green',
+    justifyContent:'center',
+    alignItems:'center'
   },
   selected: {
     borderColor: 'green',
@@ -109,6 +114,8 @@ const styles = StyleSheet.create({
     height: 22,
     borderRadius: 30/2,
     backgroundColor: 'red',
+    justifyContent:'center',
+    alignItems:'center'
   },
 });
 
