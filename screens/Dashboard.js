@@ -56,7 +56,6 @@ const Dashboard = () => {
               {"Aryan" + " "}
               <Image
                 source={require("../img/hello.png")}
-                style={{ margin: 100, width:50, height:50, }}
                 resizeMode="contain"
               />
             </Text>

@@ -50,7 +50,9 @@ const Home = () => {
         </Image>
       </View>
       <View style={Styles.mainUiContainer}>
+       
         <Dropdown options={lang} onSelect={onSelect}></Dropdown>
+        
         <TouchableOpacity onPress={loadRegister}>
           <View style={Styles.registerButton}>
             <View style={Styles.registerButtonInnerContainer}>

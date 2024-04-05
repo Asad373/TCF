@@ -44,6 +44,7 @@ const Dropdown = ({ options, onSelect }) => {
 const styles = StyleSheet.create({
   container: {
     position: 'relative',
+    zIndex:100
   },
   dropdown: {
     flexDirection: 'row',
