@@ -29,9 +29,7 @@ const WrittenExpResult = () => {
       <ScrollView style={{ display: "flex", flexDirection: "column" }}>
         <View style={examModuleStyle.subContainer}>
           <View style={ssStyle.actionBar}>
-            <TouchableOpacity style={ssStyle.backButton} onPress={()=>{Navigator.goBack()}}>
-              <Image source={require("../img/back.png")} />
-            </TouchableOpacity>
+          
             <View style={ssStyle.heading}>
               <Text style={[ssStyle.textColor, { fontSize: 18 }]}>Written Exp Result</Text>
             </View>

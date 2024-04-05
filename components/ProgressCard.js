@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet} from "react-native";
 import Colors from "../colors/Color";
+import { LinearGradient } from "expo-linear-gradient";
 
 const ProgressCard = ()=>{
   return(
@@ -17,15 +18,16 @@ const ProgressCard = ()=>{
         </View>
 
         <View style = {cardStyle.circleGroupeB}>
-        <View style= {cardStyle.circle}>
-       </View> 
-       <View style= {cardStyle.circle}>
-       </View>
-       <View style= {cardStyle.circleA}>
+        <LinearGradient colors={['#C393FF', '#E42A6C']}  style= {cardStyle.circle}>
+       </LinearGradient> 
+       <LinearGradient colors={['#C393FF', '#E42A6C']}  style= {cardStyle.circle}>
+       </LinearGradient>
+       <View  style= {cardStyle.circleA}>
        </View>
         </View>
-        <View style = {cardStyle.mainBarConatinerB}></View>
+        <LinearGradient  colors={['#C393FF', '#E42A6C']}  style = {cardStyle.mainBarConatinerB}></LinearGradient>
       </View>
+
       <View style = {cardStyle.subContainer}>
 
         <Text style = {cardStyle.levelBadge}>Level 2</Text>
@@ -49,11 +51,13 @@ const cardStyle = StyleSheet.create({
         backgroundColor:Colors.extraColor
     },
     mainBarConatinerB:{
+      position:"relative",
         height:10,
         borderRadius:20,
         marginTop:-15,
         width:"70%",
-        backgroundColor:Colors.purple
+        backgroundColor:Colors.purple,
+        zIndex:-100
     },
    circle:{
     width:20,
@@ -72,6 +76,7 @@ const cardStyle = StyleSheet.create({
     flexDirection:'row',
     justifyContent:'space-between',
     marginTop:-15,
+    zIndex:100
    }
  ,
    circleA:{

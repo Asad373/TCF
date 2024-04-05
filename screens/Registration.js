@@ -39,9 +39,17 @@ const Register = () => {
 
   const passCallback = (value) =>{
     setPass(value);
+    if(password == confirmPass){
+      setPassNull(false)
+      setConfirmNull(false)
+    }
   } 
 const confirmCallback = (value) =>{
   setConfirmPass(value);
+  if(password == confirmPass){
+    setPassNull(false)
+    setConfirmNull(false)
+  }
 }
 
   const continueTo = ()=>{

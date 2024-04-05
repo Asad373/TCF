@@ -62,7 +62,14 @@ const Profile = () => {
               </View>
             </View>
           </View>
-          <TouchableOpacity style={profileStyle.logoutContainer} >
+          <TouchableOpacity style={profileStyle.logoutContainer} onPress={()=>{ 
+              Navigator.reset({
+                index: 0, // Reset the stack to the first screen
+                routes: [{ name: 'login' }], // Navigate to the NewScreen
+              });
+          
+          }} 
+            >
             <Text style={profileStyle.logoutHeading}>Log out</Text>
           </TouchableOpacity>
         </View>

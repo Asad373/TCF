@@ -24,7 +24,7 @@ const EditField = ({hint, type ,onVlaueChnaged, multilieflag, fontSizePx, isNull
     <View style={[isNull?styles.inputContainerInnerError:styles.inputContainerInner]}>
       <TextInput
         style={[styles.input, {fontSize:fontSizePx}]}
-        placeholderTextColor={Colors.white}
+        placeholderTextColor={Colors.gray}
         fontSize={fontSizePx}
         placeholder={hint}
         value={text}
