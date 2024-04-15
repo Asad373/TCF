@@ -11,6 +11,7 @@ const Profile = () => {
   const Navigator = useNavigation();
 
   const loadNext = () => {
+    //
     Navigator.navigate("studyspacetwo");
    
   };
@@ -38,6 +39,7 @@ const Profile = () => {
           </View>
         </View>
         <View style={profileStyle.contentContainer}>
+          
           <View style={profileStyle.profileContainer}>
             <Image source={require("../img/profile_pic.png")}></Image>
             <Text style={profileStyle.profileName}>Blake Gordon</Text>

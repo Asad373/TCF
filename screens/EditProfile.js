@@ -48,6 +48,7 @@ if(email == ""){
 }
 
 if(name == ""){
+  // chn
   setNameNull(true)
 }else{
   setNameNull(false)
