@@ -7,15 +7,23 @@ import profileStyle from "../style/profileStyle";
 import ProgressCard from "../components/ProgressCard";
 import Colors from "../colors/Color";
 import Panel from "../components/Panel";
+import ModalComponent from "../components/ConfirmModal";
+import { useState } from "react";
 const Profile = () => {
   const Navigator = useNavigation();
-
-  const loadNext = () => {
-    //
-    Navigator.navigate("studyspacetwo");
-   
-  };
+  const [isOpen, setIsOpen] = useState(false);
+  const onClose= () =>{
+    setIsOpen(false);
+  }
+  const onRedirect = () =>{
+     setIsOpen(false);
+     Navigator.reset({
+      index: 0, // Reset the stack to the first screen
+      routes: [{ name: 'login' }], // Navigate to the NewScreen
+    });
+  }
   return (
+    <>
     <View style={ssStyle.mainContainer}>
       <ScrollView>
         <View style={profileStyle.mainActoinBar}>
@@ -64,19 +72,15 @@ const Profile = () => {
               </View>
             </View>
           </View>
-          <TouchableOpacity style={profileStyle.logoutContainer} onPress={()=>{ 
-              Navigator.reset({
-                index: 0, // Reset the stack to the first screen
-                routes: [{ name: 'login' }], // Navigate to the NewScreen
-              });
-          
-          }} 
-            >
+          <TouchableOpacity style={profileStyle.logoutContainer} onPress={()=>{ setIsOpen(true) }} >
             <Text style={profileStyle.logoutHeading}>Log out</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>
     </View>
+    <ModalComponent isOpen={isOpen} onClose={onClose} onRedirect={onRedirect} message={"Are you sure to logout "}></ModalComponent>
+
+    </>
   );
 };
 
