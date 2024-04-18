@@ -52,7 +52,13 @@ const validateEmail = (email) => {
               if(email == "admin" && name == "admin"){
                 Navigator.navigate('admin')
               }else{
-                Navigator.navigate('dashboard')
+                if(validateEmail(email)){
+                  Navigator.navigate('dashboard')
+                  setIsEmailNull(false)
+                }else{
+                  setIsEmailNull(true);
+                }
+                
               }
                
           }

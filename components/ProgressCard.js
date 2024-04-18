@@ -18,14 +18,15 @@ const ProgressCard = ()=>{
         </View>
 
         <View style = {cardStyle.circleGroupeB}>
-        <LinearGradient colors={['#C393FF', '#E42A6C']}  style= {cardStyle.circle}>
+        <LinearGradient colors={['#E42A6C','#C393FF']}  start={{x: 0, y: 0.5}}   end={{x: 1, y: 0.5}} style= {cardStyle.circle}>
        </LinearGradient> 
-       <LinearGradient colors={['#C393FF', '#E42A6C']}  style= {cardStyle.circle}>
+       <LinearGradient colors={['#E42A6C','#C393FF']} start={{x: 0, y: 0.5}}   end={{x: 1, y: 0.5}}  style= {cardStyle.circle}>
        </LinearGradient>
        <View  style= {cardStyle.circleA}>
        </View>
         </View>
-        <LinearGradient  colors={['#C393FF', '#E42A6C']}  style = {cardStyle.mainBarConatinerB}></LinearGradient>
+        <LinearGradient  colors={['#E42A6C','#C393FF']}  start={{x: 0, y: 0.5}} 
+          end={{x: 1, y: 0.5}}   style = {cardStyle.mainBarConatinerB}></LinearGradient>
       </View>
 
       <View style = {cardStyle.subContainer}>

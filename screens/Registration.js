@@ -34,7 +34,14 @@ const Register = () => {
     }
   };
   const nameCallBack = (value) => {
-    setName(value);
+    if(value != ''){
+      setName(value);
+      setNameNull(false)
+    }else{
+      
+      setNameNull(true)
+    }
+   
   };
 
   const passCallback = (value) =>{

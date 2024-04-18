@@ -51,6 +51,7 @@ const OralExamSet = () => {
                     heightbg={5}
                     width={70}
                     height={5}
+                    color={"red"}
                   ></ProgressSet>
                   <View style={ExamStyle.proTextContainer}>
                     <Text style={ExamStyle.cardTextDetail}>2/5</Text>
@@ -80,6 +81,7 @@ const OralExamSet = () => {
                     heightbg={5}
                     width={70}
                     height={5}
+                    color={"red"}
                   ></ProgressSet>
                   <View style={ExamStyle.proTextContainer}>
                     <Text style={ExamStyle.cardTextDetail}>2/5</Text>
@@ -111,6 +113,7 @@ const OralExamSet = () => {
                     heightbg={5}
                     width={70}
                     height={5}
+                    color={"red"}
                   ></ProgressSet>
                   <View style={ExamStyle.proTextContainer}>
                     <Text style={ExamStyle.cardTextDetail}>2/5</Text>
@@ -142,6 +145,7 @@ const OralExamSet = () => {
                     heightbg={5}
                     width={70}
                     height={5}
+                    color={"yellow"}
                   ></ProgressSet>
                   <View style={ExamStyle.proTextContainer}>
                     <Text style={ExamStyle.cardTextDetail}>2/5</Text>
@@ -174,8 +178,9 @@ const OralExamSet = () => {
                   <ProgressSet
                     widthbg={100}
                     heightbg={5}
-                    width={70}
+                    width={100}
                     height={5}
+                    color={"green"}
                   ></ProgressSet>
                   <View style={ExamStyle.proTextContainer}>
                     <Text style={ExamStyle.cardTextDetail}>2/5</Text>
@@ -205,6 +210,7 @@ const OralExamSet = () => {
                     heightbg={5}
                     width={70}
                     height={5}
+                    color={"red"}
                   ></ProgressSet>
                   <View style={ExamStyle.proTextContainer}>
                     <Text style={ExamStyle.cardTextDetail}>2/5</Text>

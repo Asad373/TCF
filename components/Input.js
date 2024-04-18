@@ -25,7 +25,7 @@ const InputField = ({hint,type,onVlaueChnaged, multilieflag, fontSizePx, isnull}
     <View style={isnull?styles.inputContainerInnerError:styles.inputContainerInner}>
       <TextInput
         style={[styles.input, {fontSize:fontSizePx}]}
-        placeholderTextColor={Colors.white}
+        placeholderTextColor={Colors.gray}
         fontSize={fontSizePx}
         placeholder={hint}
         value={text}
